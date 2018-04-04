@@ -1,0 +1,113 @@
+interface IPerson { 
+    firstName:string, 
+    lastName:string, 
+    sayHi: ()=>string 
+ } 
+ 
+ var customer:IPerson = { 
+    firstName:"Tom",
+    lastName:"Hanks", 
+    sayHi: ():string =>{return "Hi there"} 
+ } 
+ 
+ console.log("Customer Object ") 
+ console.log(customer.firstName) 
+ console.log(customer.lastName) 
+ console.log(customer.sayHi())  
+ 
+ var employee:IPerson = { 
+    firstName:"Jim",
+    lastName:"Blakes", 
+    sayHi: ():string =>{return "Hello!!!"} 
+ } 
+   
+ console.log("Employee  Object ") 
+ console.log(employee.firstName);
+  console.log(employee.lastName);
+
+
+  //Union
+
+  function disp(name:string|string[]) { 
+    if(typeof name == "string") { 
+       console.log(name) 
+    } else { 
+       var i; 
+       
+       for(i = 0;i<name.length;i++) { 
+          console.log(name[i])
+       } 
+    } 
+ } 
+ disp("mark") 
+ console.log("Printing names array....") 
+ disp(["Mark","Tom","Mary","John"])
+
+ //arrays
+
+ var alphas:string[]; 
+alphas = ["1","2","3","4"] 
+console.log(alphas[0]); 
+console.log(alphas[1]);
+
+
+//function
+
+function employee1(id, name) {
+    this.id = id;
+    this.name = name;
+ }
+ 
+ var emp = new employee1(123, "Smith");
+ employee1.prototype.email = "smith@abc.com";
+ 
+ console.log("Employee 's Id: " + emp.id);
+ console.log("Employee's name: " + emp.name);
+ console.log("Employee's Email ID: " + emp.email);
+
+ //optional Parameter
+ function disp_details(id:number,name:string,mail_id?:string) { 
+    console.log("ID:", id); 
+    console.log("Name",name); 
+    
+    if(mail_id!=undefined)  
+    console.log("Email Id",mail_id); 
+ }
+ disp_details(123,"John");
+ disp_details(111,"mary","mary@xyz.com");
+
+ //Class inTs
+ class Car { 
+    //field 
+    engine:string; 
+    
+    //constructor 
+    constructor(engine:string) { 
+       this.engine = engine 
+    }  
+    
+    //function 
+    disp():void { 
+       console.log("Function displays Engine is  :   "+this.engine) 
+    } 
+ } 
+ 
+ //create an object 
+ var obj = new Car("XXSY1")
+ 
+ //access the field 
+ console.log("Reading attribute value Engine as :  "+obj.engine)  
+ 
+ //access the function
+ obj.disp()
+
+
+ var person = { 
+    firstname:"Tom", 
+    lastname:"Hanks" 
+ }; 
+ var invokeperson = function(obj: { firstname:string, lastname :string }) { 
+    console.log("first name :"+obj.firstname) 
+    console.log("last name :"+obj.lastname) 
+ } 
+ invokeperson(person)
